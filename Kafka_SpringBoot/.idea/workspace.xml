@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb504722-9ef9-4502-8575-8bbcf03dd7ac" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Java_Playground/src/main/java/org/killer/baba/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Java_Playground/src/main/java/org/killer/baba/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="eb504722-9ef9-4502-8575-8bbcf03dd7ac" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -98,7 +96,7 @@
       <workItem from="1706869116151" duration="3210000" />
       <workItem from="1706877238589" duration="3211000" />
       <workItem from="1707211299912" duration="86000" />
-      <workItem from="1707289922896" duration="335000" />
+      <workItem from="1707289922896" duration="601000" />
     </task>
     <servers />
   </component>
