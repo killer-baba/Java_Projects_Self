@@ -1,4 +1,4 @@
-package org.killers.datastructures;
+package org.killer.baba.datastructures;
 
 public class Node {
 
