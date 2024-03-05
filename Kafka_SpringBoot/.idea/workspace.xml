@@ -4,7 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb504722-9ef9-4502-8575-8bbcf03dd7ac" name="Changes" comment="" />
+    <list default="true" id="eb504722-9ef9-4502-8575-8bbcf03dd7ac" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Java_Playground/src/main/java/org/killer/baba/datastructures/Tree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_Playground/src/main/java/org/killer/baba/datastructures/TreeNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_Playground/src/main/java/org/killer/baba/playground/InterviewBit/Arrays.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_Playground/src/main/java/org/killer/baba/playground/InterviewBit/ListNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_Playground/src/main/java/org/killer/baba/playground/InterviewBit/MinStack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_Playground/src/main/java/org/killer/baba/playground/InterviewBit/QueueIB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_Playground/src/main/java/org/killer/baba/playground/InterviewBit/StackIB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_Playground/src/main/java/org/killer/baba/playground/InterviewBit/Strings.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java_Playground/src/main/java/org/killer/baba/playground/LeetCode/LeetCodeTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java_Playground/src/main/java/org/killer/baba/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Java_Playground/src/main/java/org/killer/baba/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java_Playground/src/main/java/org/killer/baba/datastructures/CircularQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Java_Playground/src/main/java/org/killer/baba/datastructures/CircularQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java_Playground/src/main/java/org/killer/baba/playground/InterviewBit/LinkedListOne.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Java_Playground/src/main/java/org/killer/baba/playground/InterviewBit/LinkedListOne.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java_Playground/src/main/java/org/killer/baba/playground/LeetCode/LeetCodeStackAndQueues.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Java_Playground/src/main/java/org/killer/baba/playground/LeetCode/LeetCodeStackAndQueues.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/anshuman/kafka/springboot/consumer/KafkaConsumerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/anshuman/kafka/springboot/consumer/KafkaConsumerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/anshuman/kafka/springboot/consumer/KafkaConsumerConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/anshuman/kafka/springboot/consumer/KafkaConsumerConfig.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,6 +83,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -98,6 +118,14 @@
       <workItem from="1707211299912" duration="86000" />
       <workItem from="1707289922896" duration="601000" />
       <workItem from="1707460672206" duration="391000" />
+      <workItem from="1708321767545" duration="11407000" />
+      <workItem from="1708408651760" duration="3334000" />
+      <workItem from="1708580765808" duration="3173000" />
+      <workItem from="1708926389692" duration="1898000" />
+      <workItem from="1709130387195" duration="472000" />
+      <workItem from="1709530866766" duration="1391000" />
+      <workItem from="1709534445156" duration="1220000" />
+      <workItem from="1709617910245" duration="1310000" />
     </task>
     <servers />
   </component>

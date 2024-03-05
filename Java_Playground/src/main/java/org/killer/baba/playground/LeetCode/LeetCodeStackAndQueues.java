@@ -86,7 +86,7 @@ public class LeetCodeStackAndQueues {
     }
 }
 
-//Min Stack
+//Min StackIB
 class MinStack {
     Stack<Integer> stack;
     Stack<Integer> minStack;

@@ -26,7 +26,7 @@ public class CircularQueue {
        }
        if(tail < size-1){
            if(tail == head-1){
-               System.out.println("Queue is full, Can't Insert");
+               System.out.println("QueueIB is full, Can't Insert");
                return false;
            }
            tail+=1;
@@ -40,13 +40,13 @@ public class CircularQueue {
            counter++;
            return true;
        }
-        System.out.println("Queue is full, Can't Insert");
+        System.out.println("QueueIB is full, Can't Insert");
         return false;
     }
 
     public boolean deQueue() {
         if(cqueue[0] == -1 && head == -1 && tail == -1){
-            System.out.println("Queue is Empty, Can't Remove");
+            System.out.println("QueueIB is Empty, Can't Remove");
             return false;
         }
         if(head==tail){
@@ -69,7 +69,7 @@ public class CircularQueue {
 
     public int Front() {
         if(head==-1){
-            System.out.println("Queue is Empty,Can't return");
+            System.out.println("QueueIB is Empty,Can't return");
             return -1;
         }
         return cqueue[head];
@@ -77,7 +77,7 @@ public class CircularQueue {
 
     public int Rear() {
         if(tail==-1){
-            System.out.println("Queue is Empty,Can't return");
+            System.out.println("QueueIB is Empty,Can't return");
             return -1;
         }
         return cqueue[tail];
@@ -97,7 +97,7 @@ public class CircularQueue {
     public void print(){
         int p1=head,p2=tail;
         if(p1==-1 && p2==-1){
-            System.out.println("Queue is Empty");
+            System.out.println("QueueIB is Empty");
             return;
         }
         if(p1==p2){
