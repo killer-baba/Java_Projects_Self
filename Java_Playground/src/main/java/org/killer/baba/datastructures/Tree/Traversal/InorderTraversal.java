@@ -20,6 +20,7 @@ public class InorderTraversal {
 
     public void iterativeTraverse(TreeNode treeNode){
         Stack<TreeNode> s = new Stack<>();
+        System.out.println();
         while (true){
             if(treeNode == null){
                 if(s.isEmpty()){

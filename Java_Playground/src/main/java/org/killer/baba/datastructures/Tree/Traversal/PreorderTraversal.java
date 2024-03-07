@@ -11,7 +11,7 @@ public class PreorderTraversal {
             return;
         }
 
-        System.out.print( treeNode.data + " , ");
+        System.out.print( treeNode.data + "  ");
 
         recursiveTraverse(treeNode.left);
 
@@ -21,16 +21,18 @@ public class PreorderTraversal {
     public void iterativeTraverse(TreeNode treeNode){
         Stack<TreeNode> s = new Stack<>();
         s.add(treeNode);
+        System.out.println(" ");
+
         while (!s.isEmpty()){
             TreeNode temp = s.peek();
 
             s.pop();
             System.out.print(temp.data + "  ");
 
-            if(temp.left!=null){
+            if(temp.right!=null){
                 s.add(temp.right);
             }
-            if(temp.right!=null){
+            if(temp.left!=null){
                 s.add(temp.left);
             }
         }
