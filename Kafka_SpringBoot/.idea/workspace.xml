@@ -22,7 +22,6 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/org/anshuman/kafka/springboot/consumer/KafkaConsumerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/anshuman/kafka/springboot/consumer/KafkaConsumerConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/anshuman/kafka/springboot/consumer/KafkaConsumerConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/anshuman/kafka/springboot/consumer/KafkaConsumerConfig.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +124,7 @@
       <workItem from="1709130387195" duration="472000" />
       <workItem from="1709530866766" duration="1391000" />
       <workItem from="1709534445156" duration="1220000" />
-      <workItem from="1709617910245" duration="1310000" />
+      <workItem from="1709617910245" duration="1311000" />
     </task>
     <servers />
   </component>
