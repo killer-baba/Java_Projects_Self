@@ -22,5 +22,6 @@ public class LevelorderTraversal {
             }
             System.out.print(temp.data + "  ");
         }
+        System.out.println();
     }
 }
