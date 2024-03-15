@@ -2,16 +2,19 @@ package org.killer.baba.datastructures.Tree.Traversal;
 
 import org.killer.baba.datastructures.Tree.TreeNode;
 
+import java.util.ArrayList;
 import java.util.Stack;
 
 public class PreorderTraversal {
 
     public void recursiveTraverse(TreeNode treeNode){
+        ArrayList<TreeNode> answerList = new ArrayList<>();
         if(treeNode == null){
             return;
         }
 
         System.out.print( treeNode.data + "  ");
+        answerList.add(treeNode);
 
         recursiveTraverse(treeNode.left);
 
@@ -37,6 +40,18 @@ public class PreorderTraversal {
             }
         }
         System.out.println(" ");
+    }
+
+    public void recursiveTraverseWithArrayList(TreeNode treeNode, ArrayList<TreeNode> answerList){
+        if(treeNode == null){
+            return;
+        }
+
+        answerList.add(treeNode);
+
+        recursiveTraverseWithArrayList(treeNode.left,answerList);
+
+        recursiveTraverseWithArrayList(treeNode.right,answerList);
     }
 
 }

@@ -3,12 +3,16 @@ package org.killer.baba.datastructures.Tree;
 import com.sun.source.tree.Tree;
 import org.killer.baba.datastructures.Tree.Traversal.InorderTraversal;
 
+import org.killer.baba.datastructures.Tree.Traversal.PreorderTraversal;
+
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class TreeProblems {
+
+    PreorderTraversal preorderTraversal = new PreorderTraversal();
 
     public boolean identicalTrees(TreeNode treeNode1,TreeNode treeNode2){
         if(treeNode1 == null && treeNode2 == null){
@@ -261,5 +265,51 @@ public class TreeProblems {
         inorderTraversal.recursiveTraverse(treeNode);
 
         return treeNode;
+    }
+
+    public ArrayList<Integer> boundaryTraversalOfBinaryTree(TreeNode treeNode){
+
+        if(treeNode==null){
+            return null;
+        }
+
+        ArrayList<Integer> answerList = new ArrayList<>();
+        TreeNode counter = treeNode;
+        while (counter != null){
+            if(counter.left != null && counter.right != null) {
+                answerList.add(counter.data);
+            }
+            if(counter.left!= null){
+                counter = counter.left;
+            }else {
+                counter = counter.right;
+            }
+        }
+        ArrayList<TreeNode> preorderList = new ArrayList<>();
+        preorderTraversal.recursiveTraverseWithArrayList(treeNode, preorderList);
+        for (TreeNode treeNode1 : preorderList){
+            if(treeNode1.left == null && treeNode1.right == null){
+                answerList.add(treeNode1.data);
+            }
+        }
+
+        if(treeNode.right!= null) {
+            ArrayList<Integer> temp = new ArrayList<>();
+            counter = treeNode.right;
+            while (counter != null) {
+                if(counter.left != null && counter.right != null) {
+                    temp.addFirst(counter.data);
+                }
+                if (counter.right != null) {
+                    counter = counter.right;
+                } else {
+                    counter = counter.left;
+                }
+            }
+            answerList.addAll(temp);
+        }
+
+
+        return answerList;
     }
 }

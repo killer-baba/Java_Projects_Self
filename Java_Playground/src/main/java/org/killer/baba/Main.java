@@ -111,6 +111,13 @@ public class Main {
         System.out.println(str);
         treeProblems.deserializeBinaryTree(str);
         System.out.println();
+
+        ArrayList<Integer> boundaryTraversal = treeProblems.boundaryTraversalOfBinaryTree(treeNode);
+        System.out.println("Boundary Traversal : ");
+        for (Integer i : boundaryTraversal){
+            System.out.print(i + " ");
+        }
+        System.out.println();
     }
 
 }
