@@ -1,9 +1,6 @@
 package org.killer.baba;
 
-import org.killer.baba.datastructures.Tree.Traversal.InorderTraversal;
-import org.killer.baba.datastructures.Tree.Traversal.LevelorderTraversal;
-import org.killer.baba.datastructures.Tree.Traversal.PostorderTraversal;
-import org.killer.baba.datastructures.Tree.Traversal.PreorderTraversal;
+import org.killer.baba.datastructures.Tree.Traversal.*;
 import org.killer.baba.datastructures.Tree.TreeNode;
 import org.killer.baba.datastructures.Tree.TreeProblems;
 
@@ -64,8 +61,56 @@ public class Main {
             System.out.print(tn.data + " ");
         }
         System.out.println();
+
+        VerticalOrderTraversal verticalOrderTraversal = new VerticalOrderTraversal();
+        ArrayList<Integer> val = verticalOrderTraversal.verticalOrderTraversal(treeNode);
+        for (Integer i : val){
+            System.out.print(i + " ");
+        }
+        System.out.println();
+
+        ArrayList<Integer> val2 = verticalOrderTraversal.binaryTreeTopView(treeNode);
+        for (Integer i : val2){
+            System.out.print(i + " ");
+        }
+        System.out.println();
+
+        ArrayList<Integer> val3 = verticalOrderTraversal.binaryTreeBottomView(treeNode);
+        for (Integer i : val3){
+            System.out.print(i + " ");
+        }
+        System.out.println();
+
+        ArrayList<Integer> val4 = treeProblems.leftView(treeNode);
+        for (Integer i : val4){
+            System.out.print(i + " ");
+        }
+        System.out.println();
+
+        ArrayList<Integer> val5 = treeProblems.rightView(treeNode);
+        for (Integer i : val5){
+            System.out.print(i + " ");
+        }
+        System.out.println();
+
+        System.out.println(treeProblems.isBinaryTreeSymmetrical(treeNode));
+
+        ArrayList<Integer> val6 = new ArrayList<>();
+        System.out.println(treeProblems.printRootToNodePath(val6,treeNode,3));
+        for (Integer i : val6){
+            System.out.print(i + " ");
+        }
+        System.out.println();
+
+        TreeNode treeNode2 = treeProblems.lowestCommonAncestor(treeNode, 4,5);
+        System.out.println(treeNode2.data);
+
+        System.out.println(treeProblems.totalNodesInCompleteBinaryTree(treeNode));
+
+        String str = treeProblems.serializeBinaryTree(treeNode);
+        System.out.println(str);
+        treeProblems.deserializeBinaryTree(str);
+        System.out.println();
     }
-
-
 
 }

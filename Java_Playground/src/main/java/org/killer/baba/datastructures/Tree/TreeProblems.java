@@ -1,8 +1,12 @@
 package org.killer.baba.datastructures.Tree;
 
+import com.sun.source.tree.Tree;
+import org.killer.baba.datastructures.Tree.Traversal.InorderTraversal;
+
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.LinkedList;
+import java.util.Queue;
 
 public class TreeProblems {
 
@@ -97,5 +101,165 @@ public class TreeProblems {
             answerList.addAll(temp);
         }
         return answerList;
+    }
+
+    public ArrayList<Integer> leftView(TreeNode treeNode){
+        ArrayList<Integer> answer = new ArrayList<>();
+        TreeNode curr = treeNode;
+        while (curr != null){
+            answer.add(curr.data);
+            if(curr.left!=null){
+                curr = curr.left;
+            }else {
+                curr = curr.right;
+            }
+        }
+        return answer;
+    }
+
+    public ArrayList<Integer> rightView(TreeNode treeNode){
+        ArrayList<Integer> answer = new ArrayList<>();
+        TreeNode curr = treeNode;
+        while (curr != null){
+            answer.add(curr.data);
+            if(curr.right!=null){
+                curr = curr.right;
+            }else {
+                curr = curr.left;
+            }
+        }
+        return answer;
+    }
+
+    public boolean isSymmetrical(TreeNode leftNode, TreeNode rightNode){
+        if(leftNode==null || rightNode==null){
+            return leftNode == rightNode;
+        }
+        return leftNode == rightNode && isSymmetrical(leftNode.left , rightNode.right) && isSymmetrical(leftNode.right , rightNode.left);
+    }
+
+    public boolean isBinaryTreeSymmetrical(TreeNode treeNode){
+        if(treeNode==null){return true;}
+        return isSymmetrical(treeNode.left,treeNode.right);
+    }
+
+    public boolean printRootToNodePath(ArrayList<Integer> pathList,TreeNode treeNode, int value){
+        if(treeNode == null){
+            return false;
+        }
+        pathList.add(treeNode.data);
+        if(treeNode.data == value){
+            return true;
+        }
+        boolean result = printRootToNodePath(pathList,treeNode.left,value) || printRootToNodePath(pathList,treeNode.right,value);
+
+        if(!result){
+            pathList.removeLast();
+            return false;
+        }
+        return true;
+
+    }
+
+    public TreeNode lowestCommonAncestor(TreeNode treeNode,int x,int y){
+        if(treeNode == null || treeNode.data == x || treeNode.data == y){
+            return treeNode;
+        }
+
+        TreeNode left = lowestCommonAncestor(treeNode.left,x,y);
+        TreeNode right = lowestCommonAncestor(treeNode.right,x,y);
+
+        if(left == null ){
+            return right;
+        }
+
+        if(right == null){
+            return left;
+        }
+
+        return treeNode;
+    }
+
+    public int totalNodesInCompleteBinaryTree(TreeNode treeNode){
+        int leftHeight = calculateLeftHeight(treeNode);
+        int rightHeight = calculateRightHeight(treeNode);
+
+        if(leftHeight == rightHeight){
+            return (1<<leftHeight)-1;
+        }else {
+            return totalNodesInCompleteBinaryTree(treeNode.left) + maxDiameterOfBinaryTree(treeNode.right) + 1;
+        }
+    }
+
+    public int calculateLeftHeight(TreeNode treeNode){
+        int height = 0;
+        while (treeNode!=null){
+            height++;
+            treeNode = treeNode.left;
+        }
+        return height;
+    }
+
+    public int calculateRightHeight(TreeNode treeNode){
+        int height = 0;
+        while (treeNode!=null){
+            height++;
+            treeNode = treeNode.right;
+        }
+        return height;
+    }
+
+    public String serializeBinaryTree(TreeNode treeNode){
+        if(treeNode == null){
+            return "#";
+        }
+        StringBuilder result = new StringBuilder();
+        Queue<TreeNode> counter = new LinkedList<>();
+        counter.add(treeNode);
+        while (!counter.isEmpty()){
+            TreeNode temp = counter.poll();
+            if(temp == null){
+                result.append("#");
+                continue;
+            }
+            result.append(temp.data);
+            if(temp.left!=null){
+                counter.add(temp.left);
+            }else {
+                counter.add(null);
+            }
+            if(temp.right!=null){
+                counter.add(temp.right);
+            }else {
+                counter.add(null);
+            }
+        }
+        return result.toString();
+    }
+
+    public TreeNode deserializeBinaryTree(String serializedTree){
+        Queue<TreeNode> counter = new LinkedList<>();
+        TreeNode treeNode = new TreeNode(serializedTree.charAt(0)-'0');
+        counter.add(treeNode);
+        int i=1;
+        while (!counter.isEmpty()){
+            TreeNode temp = counter.poll();
+            if(i<serializedTree.length() && serializedTree.charAt(i) != '#'){
+                TreeNode leftTree = new TreeNode(serializedTree.charAt(i)-'0');
+                temp.left = leftTree;
+                counter.add(leftTree);
+            }
+            i++;
+            if(i<serializedTree.length() && serializedTree.charAt(i) != '#'){
+                TreeNode rightTree = new TreeNode(serializedTree.charAt(i)-'0');
+                temp.right = rightTree;
+                counter.add(rightTree);
+            }
+            i++;
+        }
+        InorderTraversal inorderTraversal = new InorderTraversal();
+        inorderTraversal.recursiveTraverse(treeNode);
+
+        return treeNode;
     }
 }
