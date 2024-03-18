@@ -118,6 +118,9 @@ public class Main {
             System.out.print(i + " ");
         }
         System.out.println();
+
+        TreeNode tn = treeProblems.childrenSum(treeNode);
+        preorderTraversal.recursiveTraverse(tn);
     }
 
 }

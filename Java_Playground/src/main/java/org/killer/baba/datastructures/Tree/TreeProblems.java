@@ -25,6 +25,7 @@ public class TreeProblems {
         return (treeNode1.data == treeNode2.data) && identicalTrees(treeNode1.left,treeNode2.left) && identicalTrees(treeNode1.left,treeNode2.left);
     }
 
+    //wrong, need modification
     public int maxSumPath(TreeNode treeNode){
         if(treeNode == null){
             return 0;
@@ -311,5 +312,23 @@ public class TreeProblems {
 
 
         return answerList;
+    }
+
+    public TreeNode childrenSum(TreeNode treeNode){
+        if(treeNode == null){
+            return treeNode;
+        }
+
+        TreeNode left = childrenSum(treeNode.left);
+        TreeNode right = childrenSum(treeNode.right);
+
+        if(left.data + right.data < treeNode.data){
+            left.data = treeNode.data;
+            right.data = treeNode.data;
+        }
+        if(left.data + right.data > treeNode.data){
+            treeNode.data = left.data + right.data;
+        }
+        return treeNode;
     }
 }
