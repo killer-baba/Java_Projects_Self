@@ -5,6 +5,7 @@ import org.killer.baba.datastructures.Tree.TreeNode;
 import org.killer.baba.datastructures.Tree.TreeProblems;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
@@ -119,8 +120,31 @@ public class Main {
         }
         System.out.println();
 
-        TreeNode tn = treeProblems.childrenSum(treeNode);
-        preorderTraversal.recursiveTraverse(tn);
+        System.out.println("Morris Inorder");
+        inorderTraversal.morrisInorder(treeNode);
+        System.out.println();
+
+        System.out.println("Morris Preorder");
+        preorderTraversal.morrisPreorder(treeNode);
+        System.out.println();
+
+        System.out.println();
+        System.out.println(treeProblems.maximumWidth(treeNode));
+
+        HashMap<TreeNode,TreeNode> parentmapper = new HashMap<>();
+        treeProblems.parentMapper(parentmapper,treeNode);
+        for (TreeNode tn : parentmapper.keySet()){
+            System.out.println("Key : " + tn.data + " Value : " + parentmapper.get(tn).data);
+        }
+
+        ArrayList<Integer> ans = treeProblems.nodesAtDistanceK(treeNode,treeNode.left,3);
+        System.out.println("Nodes at distance K");
+        for (Integer in : ans){
+            System.out.print(in + " ");
+        }
+        System.out.println();
+
+        System.out.println("Max Time Needed : " + treeProblems.minTimeToBurnBinaryTree(treeNode,treeNode.right));
     }
 
 }

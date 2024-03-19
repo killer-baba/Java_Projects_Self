@@ -37,5 +37,29 @@ public class InorderTraversal {
         System.out.println();
     }
 
+    public void morrisInorder(TreeNode treeNode){
+        TreeNode curr = treeNode;
+        while (curr!=null){
+            if(curr.left == null){
+                System.out.print(curr.data + " ");
+                curr = curr.right;
+            }else {
+                TreeNode prev = curr.left;
+                while (prev.right!=null && prev.right != curr){
+                    prev = prev.right;
+                }
+                if(prev.right == null){
+                    prev.right = curr;
+                    curr = curr.left;
+                }else {
+                    System.out.print(curr.data + " ");
+                    curr = curr.right;
+                    prev.right = null;
+
+                }
+            }
+        }
+    }
+
 
 }

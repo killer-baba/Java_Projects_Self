@@ -4,11 +4,9 @@ import com.sun.source.tree.Tree;
 import org.killer.baba.datastructures.Tree.Traversal.InorderTraversal;
 
 import org.killer.baba.datastructures.Tree.Traversal.PreorderTraversal;
+import org.killer.baba.datastructures.Tree.Traversal.TreePair;
 
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class TreeProblems {
 
@@ -314,21 +312,168 @@ public class TreeProblems {
         return answerList;
     }
 
-    public TreeNode childrenSum(TreeNode treeNode){
+    public int childrenSum(TreeNode treeNode){
         if(treeNode == null){
-            return treeNode;
+            return 0;
+        }
+        int leftData=0,rightData=0;
+        if(treeNode.left!=null){
+            leftData = treeNode.left.data;
+        }
+        if(treeNode.right!=null){
+            rightData = treeNode.right.data;
         }
 
-        TreeNode left = childrenSum(treeNode.left);
-        TreeNode right = childrenSum(treeNode.right);
+        if(leftData+rightData<treeNode.data){
+            if(treeNode.left!=null){
+                treeNode.left.data = treeNode.data;
+            }
+            if(treeNode.right!=null){
+                treeNode.right.data = treeNode.data;
+            }
+        }
 
-        if(left.data + right.data < treeNode.data){
-            left.data = treeNode.data;
-            right.data = treeNode.data;
+        leftData = childrenSum(treeNode.left);
+        rightData = childrenSum(treeNode.right);
+
+        if(leftData + rightData > treeNode.data){
+            treeNode.data = leftData + rightData;
         }
-        if(left.data + right.data > treeNode.data){
-            treeNode.data = left.data + right.data;
+        return treeNode.data;
+    }
+
+    public int maximumWidth(TreeNode treeNode){
+        if(treeNode==null){
+            return 0;
         }
-        return treeNode;
+        Queue<TreePair> travor = new LinkedList<>();
+        travor.add(new TreePair(treeNode,0));
+        int width=0;
+
+        while (!travor.isEmpty()){
+            int size = travor.size();
+            int first=0,last=0;
+            int min = travor.peek().value;
+            for (int i = 0; i < size; i++) {
+                TreePair temp = travor.poll();
+                TreeNode tempNode = temp.treeNode;
+                int pointerVal = temp.value-min;
+                if(i==0){
+                    first = temp.value;
+                }
+                if(i==size-1){
+                    last = temp.value;
+                }
+                if(tempNode.left != null){
+                    travor.add(new TreePair(tempNode.left,(2*pointerVal+1)));
+                }
+                if(tempNode.right != null){
+                    travor.add(new TreePair(tempNode.right,(2*pointerVal+2)));
+                }
+            }
+            width = Math.max(width,last-first+1);
+        }
+        return width;
+    }
+
+    public void parentMapper(HashMap<TreeNode,TreeNode> hashMap, TreeNode treeNode){
+        if(treeNode == null){
+            return;
+        }
+        if(treeNode.left != null){
+            hashMap.put(treeNode.left,treeNode);
+        }
+        if(treeNode.right != null){
+            hashMap.put(treeNode.right,treeNode);
+        }
+
+        parentMapper(hashMap,treeNode.left);
+        parentMapper(hashMap,treeNode.right);
+
+    }
+
+    public ArrayList<Integer> nodesAtDistanceK(TreeNode root, TreeNode treeNode, int k){
+        if(treeNode==null){
+            return null;
+        }
+        ArrayList<Integer> answer = new ArrayList<>();
+        HashMap<TreeNode,TreeNode> parentsTracker = new HashMap<>();
+        parentMapper(parentsTracker,root);
+        Queue<TreeNode> traverse = new LinkedList<>();
+        traverse.add(treeNode);
+        int distance = 0;
+        Set<TreeNode> visits = new HashSet<>();
+        visits.add(treeNode);
+
+        while (!traverse.isEmpty()){
+            distance++;
+            int size = traverse.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode parent = null;
+
+                TreeNode temp = traverse.poll();
+                if (temp.left != null && !visits.contains(temp.left)) {
+                    traverse.add(temp.left);
+                    visits.add(temp.left);
+                }
+                if (temp.right != null && !visits.contains(temp.right)) {
+                    traverse.add(temp.right);
+                    visits.add(temp.right);
+                }
+                if(parentsTracker.containsKey(temp)){
+                    parent = parentsTracker.get(temp);
+                }
+                if(parent!=null && !visits.contains(parent)){
+                    traverse.add(parent);
+                    visits.add(parent);
+                }
+            }
+            if(distance==k){
+                break;
+            }
+        }
+        while (!traverse.isEmpty()){
+            answer.add(traverse.poll().data);
+        }
+        return answer;
+    }
+
+    public int minTimeToBurnBinaryTree(TreeNode root, TreeNode treeNode){
+        if(treeNode==null){
+            return 0;
+        }
+        HashMap<TreeNode,TreeNode> parentsTracker = new HashMap<>();
+        parentMapper(parentsTracker,root);
+        Queue<TreeNode> traverse = new LinkedList<>();
+        traverse.add(treeNode);
+        int distance = -1;
+        Set<TreeNode> visits = new HashSet<>();
+        visits.add(treeNode);
+
+        while (!traverse.isEmpty()){
+            distance++;
+            int size = traverse.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode parent = null;
+
+                TreeNode temp = traverse.poll();
+                if (temp.left != null && !visits.contains(temp.left)) {
+                    traverse.add(temp.left);
+                    visits.add(temp.left);
+                }
+                if (temp.right != null && !visits.contains(temp.right)) {
+                    traverse.add(temp.right);
+                    visits.add(temp.right);
+                }
+                if(parentsTracker.containsKey(temp)){
+                    parent = parentsTracker.get(temp);
+                }
+                if(parent!=null && !visits.contains(parent)){
+                    traverse.add(parent);
+                    visits.add(parent);
+                }
+            }
+        }
+        return distance;
     }
 }
