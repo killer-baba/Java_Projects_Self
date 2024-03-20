@@ -1,8 +1,12 @@
 package org.killer.baba;
 
+import org.killer.baba.datastructures.Tree.BinaryTreeConstruction.ConstructionFromInorderAndPostorder;
+import org.killer.baba.datastructures.Tree.BinaryTreeConstruction.ConstructionFromInorderAndPreorder;
 import org.killer.baba.datastructures.Tree.Traversal.*;
 import org.killer.baba.datastructures.Tree.TreeNode;
 import org.killer.baba.datastructures.Tree.TreeProblems;
+import org.killer.baba.playground.InterviewBit.ListNode;
+import org.killer.baba.playground.LeetCode.LeetCodeDailyStreak;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -145,6 +149,70 @@ public class Main {
         System.out.println();
 
         System.out.println("Max Time Needed : " + treeProblems.minTimeToBurnBinaryTree(treeNode,treeNode.right));
+
+        ConstructionFromInorderAndPreorder treeConstructor = new ConstructionFromInorderAndPreorder();
+        ConstructionFromInorderAndPostorder treeConstructor2 = new ConstructionFromInorderAndPostorder();
+        ArrayList<Integer> inorderList = new ArrayList<>();
+        ArrayList<Integer> preorderList = new ArrayList<>();
+        ArrayList<Integer> postorderList = new ArrayList<>();
+        inorderList.add(4);
+        inorderList.add(2);inorderList.add(5);
+        inorderList.add(1);inorderList.add(6);
+        inorderList.add(3);inorderList.add(7);
+
+        preorderList.add(1);preorderList.add(2);
+        preorderList.add(4);preorderList.add(5);
+        preorderList.add(3);preorderList.add(6);
+        preorderList.add(7);
+
+        postorderList.add(4);postorderList.add(5);
+        postorderList.add(2);postorderList.add(6);
+        postorderList.add(7);postorderList.add(3);
+        postorderList.add(1);
+
+
+
+        System.out.println(preorderList.subList(0,1).isEmpty());
+
+
+        TreeNode newTreeNode = treeConstructor.treeFromInorderAndPreorder(inorderList,preorderList);
+        preorderTraversal.recursiveTraverse(newTreeNode);
+        System.out.println();
+        inorderTraversal.recursiveTraverse(newTreeNode);
+        System.out.println();
+
+        TreeNode newTreeNode2 = treeConstructor2.treeFromInorderAndPostorder(inorderList,postorderList);
+        preorderTraversal.recursiveTraverse(newTreeNode2);
+        System.out.println();
+        inorderTraversal.recursiveTraverse(newTreeNode2);
+        System.out.println();
+
+        TreeNode newTreeNode3 = treeConstructor2.treeFromInorderAndPostorder(inorderList,postorderList);
+        preorderTraversal.recursiveTraverse(newTreeNode2);
+        System.out.println();
+        inorderTraversal.recursiveTraverse(newTreeNode2);
+        System.out.println();
+
+        TreeNode flatennedList1 = treeProblems.flattenBinaryTreeWithStack(newTreeNode2);
+        while (flatennedList1!=null) {
+            System.out.print(flatennedList1.data);
+            flatennedList1 = flatennedList1.right;
+        }
+        System.out.println();
+
+        TreeNode flatennedList2 = treeProblems.flattenBinaryTreeWithMorrisTraversal(newTreeNode);
+        while (flatennedList2 != null) {
+            System.out.print(flatennedList2.data);
+            flatennedList2 = flatennedList2.right;
+        }
+        System.out.println();
+
+        TreeNode flatennedList3 = treeProblems.flattenBinaryTreeByRecursion(newTreeNode3);
+        while (flatennedList3 != null) {
+            System.out.print(flatennedList3.data);
+            flatennedList3 = flatennedList3.right;
+        }
+        System.out.println();
     }
 
 }

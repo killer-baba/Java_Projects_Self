@@ -476,4 +476,60 @@ public class TreeProblems {
         }
         return distance;
     }
+
+    public TreeNode flattenBinaryTreeWithStack(TreeNode treeNode){
+        Stack<TreeNode> travor = new Stack<>();
+        travor.add(treeNode);
+        while (!travor.isEmpty()){
+            TreeNode temp = travor.pop();
+            if(temp.right != null){
+                travor.add(temp.right);
+            }
+            if(temp.left != null){
+                travor.add(temp.left);
+            }
+            if(!travor.isEmpty()){
+                temp.right = travor.peek();
+            }
+            temp.left = null;
+        }
+        return treeNode;
+    }
+
+    public TreeNode flattenBinaryTreeWithMorrisTraversal(TreeNode treeNode){
+        TreeNode curr = treeNode;
+        while (curr!=null){
+            if(curr.left!=null) {
+                TreeNode prev = curr.left;
+                while (prev.right != null) {
+                    prev = prev.right;
+                }
+                prev.right = curr.right;
+                curr.right = curr.left;
+            }
+            curr = curr.right;
+        }
+        return treeNode;
+    }
+
+    public TreeNode flattenBinaryTreeByRecursion(TreeNode treeNode){
+        TreeNode[] prev = new TreeNode[1];
+        prev[0] = null;
+        recursionCodeForFlattening(treeNode,prev);
+        return treeNode;
+    }
+
+    public void recursionCodeForFlattening(TreeNode treeNode, TreeNode[] prev){
+        if(treeNode==null){
+            return;
+        }
+        recursionCodeForFlattening(treeNode.right,prev);
+        recursionCodeForFlattening(treeNode.left,prev);
+
+        treeNode.right = prev[0];
+        treeNode.left = null;
+
+        prev[0] = treeNode;
+    }
+
 }
