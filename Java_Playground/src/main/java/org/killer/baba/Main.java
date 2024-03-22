@@ -222,6 +222,14 @@ public class Main {
         System.out.println(bst.search(bstTree,16).data);
         System.out.println(bst.findCeil(bstTree,14).data);
         System.out.println(bst.findFloor(bstTree,9).data);
+
+        ListNode l1 = new ListNode(1);
+        ListNode l2 = new ListNode(2);l1.next = l2;
+        ListNode l3 = new ListNode(1);l2.next = l3;
+        ListNode l4 = new ListNode(2);l3.next = null;
+        ListNode l5 = new ListNode(1);l4.next = l5;l5.next = null;
+        LeetCodeDailyStreak  lst = new LeetCodeDailyStreak();
+        System.out.println(lst.isPalindrome(l1));
     }
 
 }

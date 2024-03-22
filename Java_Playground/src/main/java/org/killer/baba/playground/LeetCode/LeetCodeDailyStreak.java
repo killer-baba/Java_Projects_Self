@@ -44,9 +44,9 @@ public class LeetCodeDailyStreak {
 
     public ListNode reverseList(ListNode head) {
         if(head==null || head.next == null){
-            return null;
+            return head;
         }
-        ListNode prevnode = head, curr = head.next, nextNode = head.next.next;
+        ListNode prevnode = head, curr = head.next, nextNode = head.next;
         while (curr != null){
             nextNode = nextNode.next;
             curr.next = prevnode;
@@ -54,6 +54,38 @@ public class LeetCodeDailyStreak {
             curr = nextNode;
         }
         return prevnode;
+    }
+
+    public boolean isPalindrome(ListNode head) {
+        if(head==null || head.next==null){
+            return true;
+        }
+        int middle = 0,tocheck=0;
+        ListNode middleNode = head,curr = head;
+        while (curr!=null){
+            middle += 1;
+            curr = curr.next;
+        }
+        tocheck = middle/2;
+        if(middle%2==0){
+            middle = middle/2;
+        }else {
+            middle = middle/2+1;
+        }
+        for (int i = 0; i < middle; i++) {
+            middleNode = middleNode.next;
+        }
+        middleNode = reverseList(middleNode);
+
+        for (int i = 0; i < tocheck; i++) {
+            if(middleNode.val!=head.val){
+                return false;
+            }
+            middleNode = middleNode.next;
+            head = head.next;
+
+        }
+        return true;
     }
 
 
