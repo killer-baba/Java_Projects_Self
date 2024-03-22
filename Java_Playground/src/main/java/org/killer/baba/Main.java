@@ -1,5 +1,6 @@
 package org.killer.baba;
 
+import org.killer.baba.datastructures.Tree.BinarySearchTree.BinarySearchTree;
 import org.killer.baba.datastructures.Tree.BinaryTreeConstruction.ConstructionFromInorderAndPostorder;
 import org.killer.baba.datastructures.Tree.BinaryTreeConstruction.ConstructionFromInorderAndPreorder;
 import org.killer.baba.datastructures.Tree.Traversal.*;
@@ -9,6 +10,7 @@ import org.killer.baba.playground.InterviewBit.ListNode;
 import org.killer.baba.playground.LeetCode.LeetCodeDailyStreak;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
@@ -213,6 +215,13 @@ public class Main {
             flatennedList3 = flatennedList3.right;
         }
         System.out.println();
+        ArrayList<Integer> bstInorder = new ArrayList<>(Arrays.asList(1,3,4,5,6,7,8,10,13,15,16,17,18));
+        ArrayList<Integer> bstPreorder = new ArrayList<>(Arrays.asList(10,5,3,1,4,7,6,8,15,13,17,16,18));
+        TreeNode bstTree = treeConstructor.treeFromInorderAndPreorder(bstInorder,bstPreorder);
+        BinarySearchTree bst = new BinarySearchTree();
+        System.out.println(bst.search(bstTree,16).data);
+        System.out.println(bst.findCeil(bstTree,14).data);
+        System.out.println(bst.findFloor(bstTree,9).data);
     }
 
 }

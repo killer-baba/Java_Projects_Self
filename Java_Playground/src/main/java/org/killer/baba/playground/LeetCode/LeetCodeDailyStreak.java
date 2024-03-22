@@ -42,4 +42,19 @@ public class LeetCodeDailyStreak {
         return list1;
     }
 
+    public ListNode reverseList(ListNode head) {
+        if(head==null || head.next == null){
+            return null;
+        }
+        ListNode prevnode = head, curr = head.next, nextNode = head.next.next;
+        while (curr != null){
+            nextNode = nextNode.next;
+            curr.next = prevnode;
+            prevnode = curr;
+            curr = nextNode;
+        }
+        return prevnode;
+    }
+
+
 }
